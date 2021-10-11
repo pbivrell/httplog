@@ -48,7 +48,6 @@ func (l *Logger) Write(data httplog.Data) error {
 		"OSVersion":        data.OSVersion,
 		"Device":           data.Device,
 		"DeviceType":       data.DeviceType,
-		"User":             data.User,
 		"Time":             data.Time,
 	}).Infof("request")
 	return nil
