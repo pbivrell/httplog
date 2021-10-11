@@ -8,13 +8,13 @@ import (
 
 // Logger is the logrus implementation of httplog.Logger
 type Logger struct {
-	Logger *logrus.Logger
+	Logger *logrus.Entry
 }
 
 type loggerOpt func(l *Logger)
 
 // WithLogrus allows you to replace the default logrus logger with your own
-func WithLogrus(logger *logrus.Logger) loggerOpt {
+func WithLogrus(logger *logrus.Entry) loggerOpt {
 	return func(l *Logger) {
 		l.Logger = logger
 	}
@@ -23,7 +23,7 @@ func WithLogrus(logger *logrus.Logger) loggerOpt {
 // NewLogger returns an httplog.Logger. Writing logs using the default logrus logger. You may also providing 0 or more optional configuration to alter the defaults
 func NewLogger(opts ...loggerOpt) *Logger {
 	l := &Logger{
-		Logger: logrus.New(),
+		Logger: logrus.New().WithFields(logrus.Fields{}),
 	}
 
 	for _, opt := range opts {
