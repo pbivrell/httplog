@@ -3,8 +3,9 @@
 # Overview 
 httplog is a go package that attempts to simplify logging around http requests. This package exposes a structure containing the _useful_ data from any given http request. Then it defines an interface for writing this data. In the loggers director we have supplied some implementations for the logger to the following outputs.
 
-|---|---|---|
-| Implementation | Use case | 
+
+| Implementation | Use case |
+|---|---|
 | [logrus](https://github.com/sirupsen/logrus) | Text base logging | 
 | [influx](https://www.influxdata.com/) | Time series database persistent logs | 
 
